@@ -1,0 +1,15 @@
+.WorldSummary {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 320px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+@media (min-width: 769px) {
+  .WorldSummary {
+    flex-direction: row;
+  }
+}
