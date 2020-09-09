@@ -1,0 +1,12 @@
+.Statistics {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 769px) {
+  .Statistics {
+    width: 50%;
+  }
+}
