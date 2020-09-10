@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import axios from "axios";
 import { Line, Bar } from "react-chartjs-2";
 import classes from "./Statistics.module.css";
 
-class Statistics extends Component {
+class Statistics extends PureComponent {
   state = {
     dailyStatistics: [],
   };
@@ -26,7 +26,7 @@ class Statistics extends Component {
   };
 
   render() {
-    console.log(this.state.dailyStatistics);
+    console.log("updated");
     let lineChart = null;
 
     if (this.state.dailyStatistics) {
