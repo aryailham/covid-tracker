@@ -12,8 +12,6 @@ class Statistics extends PureComponent {
     axios
       .get("daily")
       .then((result) => {
-        console.log(result.data);
-
         const allData = result.data.map((data) => ({
           confirmed: data.confirmed.total,
           deaths: data.deaths.total,
@@ -26,7 +24,6 @@ class Statistics extends PureComponent {
   };
 
   render() {
-    console.log("updated");
     let lineChart = null;
 
     if (this.state.dailyStatistics) {
