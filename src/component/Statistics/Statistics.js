@@ -56,7 +56,42 @@ class Statistics extends Component {
       );
     }
 
-    return <div className={classes.Statistics}>{lineChart}</div>;
+    const barChart = this.props.data.confirmed ? (
+      <Bar
+        data={{
+          labels: ["Infected", "Recovered", "Deaths"],
+          datasets: [
+            {
+              label: "People",
+              backgroundColor: [
+                "rgba(0, 0, 255, 0.5)",
+                "rgba(0, 255, 0, 0.5)",
+                "rgba(255, 0, 0, 0.5)",
+              ],
+              data: [
+                this.props.data.confirmed.value,
+                this.props.data.recovered.value,
+                this.props.data.deaths.value,
+              ],
+            },
+          ],
+        }}
+        options={{
+          legend: { display: false },
+          title: { display: true, text: "data in " + this.props.country },
+        }}
+      />
+    ) : null;
+
+    if (!this.props.data.confirmed) {
+      return "...loading";
+    }
+
+    return (
+      <div className={classes.Statistics}>
+        {this.props.country ? barChart : lineChart}
+      </div>
+    );
   }
 }
 
