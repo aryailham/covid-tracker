@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import axios from "axios";
 import { Line, Bar } from "react-chartjs-2";
 import classes from "./Statistics.module.css";
 
-class Statistics extends Component {
+class Statistics extends PureComponent {
   state = {
     dailyStatistics: [],
   };
@@ -12,8 +12,6 @@ class Statistics extends Component {
     axios
       .get("daily")
       .then((result) => {
-        console.log(result.data);
-
         const allData = result.data.map((data) => ({
           confirmed: data.confirmed.total,
           deaths: data.deaths.total,
@@ -26,7 +24,6 @@ class Statistics extends Component {
   };
 
   render() {
-    console.log(this.state.dailyStatistics);
     let lineChart = null;
 
     if (this.state.dailyStatistics) {
